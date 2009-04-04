@@ -149,5 +149,5 @@ textarea {
 .Button4Size5 { background-position: -827px -79px; }
 .Button5Size5 { background-position: -1065px -79px; }
 
-a.Button3Size2:link { text-decoration: none; }
-a.Button3Size2:hover { text-decoration: underline; }
+a.CommonLink:link { text-decoration: none; }
+a.CommonLink:hover { text-decoration: underline; }
