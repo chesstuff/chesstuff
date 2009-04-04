@@ -110,7 +110,7 @@ textarea {
 .Button1Size5,.Button2Size5,.Button3Size5,.Button4Size5,.Button5Size5
 	{ background-image: url("http://www.geocities.com/pilafovi/Chess-Viewer/blogspot/sprite-buttons.png");
 	display: block; text-align: center; text-decoration: none;
-	font-size: 15px; font-weight: normal; color: #fff;
+	font-size: 16px; font-weight: normal; color: #fff;
 	cursor: pointer; background-color: transparent; overflow: hidden;
 	border: 0; padding: 0; margin: 0; }
 .Button1Size1,.Button2Size1,.Button3Size1,.Button4Size1,.Button5Size1
