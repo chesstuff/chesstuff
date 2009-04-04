@@ -1,0 +1,153 @@
+/*
+ ****************************************
+ * Style Sheet for Chess Web Publishing *
+ ****************************************
+ */
+
+/* Chess Applet */
+
+#oChessViewer {
+	margin-top: 12pt;
+	margin-bottom: 12pt;
+}
+
+.post-body h1 {
+	color: #3377BB;
+	font-size: 13pt;
+}
+
+.post-body .codeOut {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #656565;
+	background: #6AC8A6;
+}
+
+.codeOut .codeBox {
+	margin: 0;
+	padding: 2px 0 2px 8px;
+	line-height: 14pt;
+	color: white;
+	font-size: 11pt;
+	font-weight: normal;
+	font-family: Courier, Tahoma, Arial;
+	text-decoration: none;
+}
+
+.codeBold {
+	color: white;
+	background: #B87D3E;
+}
+
+/* Round Corners */
+
+.codeOut .ct, .codeOut .ct .cl, .codeOut .cb, .codeOut .cb .cl {
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	margin: 0;
+	height: 4px;
+	position: relative;
+}
+
+.codeOut .ct, .codeOut .cb { width: 100%; right: -1px }
+.codeOut .ct .cl, .codeOut .cb .cl { width: 4px; left: -2px }
+
+.codeOut .ct {
+	background: transparent url("http://www.geocities.com/pilafovi/Chess-Viewer/blogspot/cr_ne.gif") no-repeat top right;
+	top: -1px;
+}
+
+.codeOut .ct .cl {
+	background: transparent url("http://www.geocities.com/pilafovi/Chess-Viewer/blogspot/cr_nw.gif") no-repeat top left;
+}
+
+.codeOut .cb {
+	background: transparent url("http://www.geocities.com/pilafovi/Chess-Viewer/blogspot/cr_se.gif") no-repeat bottom right;
+	bottom: -1px;
+}
+.codeOut .cb .cl {
+	background: transparent url("http://www.geocities.com/pilafovi/Chess-Viewer/blogspot/cr_sw.gif") no-repeat bottom left;
+}
+
+/* Form and fields */
+
+.form-text {
+	margin: 6px 0px 2px 0px;
+}
+
+.field-label {
+	margin-top: 8px;
+	text-align: left;
+	float: left;
+	white-space: nowrap;
+}
+
+.field-key {
+	font-weight: bold;
+	color: #0088AC;
+}
+
+.field-box {
+	margin: 6px 0px 0px 4pt;
+	padding: 2px;
+	height: 14pt;
+	border: 1px solid #7C5DD5;
+}
+
+textarea {
+	margin: 12px 0px 10px 0px;
+	padding: 2px;
+	border: 1px solid #7C5DD5;
+}
+
+/* Various Buttons */
+
+.Button1Size1,.Button2Size1,.Button3Size1,.Button4Size1,.Button5Size1,
+.Button1Size2,.Button2Size2,.Button3Size2,.Button4Size2,.Button5Size2,
+.Button1Size3,.Button2Size3,.Button3Size3,.Button4Size3,.Button5Size3,
+.Button1Size4,.Button2Size4,.Button3Size4,.Button4Size4,.Button5Size4,
+.Button1Size5,.Button2Size5,.Button3Size5,.Button4Size5,.Button5Size5
+	{ background-image: url("http://www.geocities.com/pilafovi/Chess-Viewer/blogspot/sprite-buttons.png");
+	display: block; text-align: center;
+	font-size: 15px; font-weight: normal; color: #fff;
+	cursor: pointer; background-color: transparent; overflow: hidden;
+	border: 0; padding: 0; margin: 0; }
+.Button1Size1,.Button2Size1,.Button3Size1,.Button4Size1,.Button5Size1
+	{ width: 164px; height: 28px; line-height: 28px; }
+.Button1Size2,.Button2Size2,.Button3Size2,.Button4Size2,.Button5Size2
+	{ width: 95px; height: 28px; line-height: 28px;}
+.Button1Size3,.Button2Size3,.Button3Size3,.Button4Size3,.Button5Size3
+	{ width: 81px; height: 18px; line-height: 18px; }
+.Button1Size4,.Button2Size4,.Button3Size4,.Button4Size4,.Button5Size4
+	{ width: 238px; height: 35px; line-height: 35px; }
+.Button1Size5,.Button2Size5,.Button3Size5,.Button4Size5,.Button5Size5
+	{ width: 125px; height: 28px; line-height: 28px; }
+.Button1Size1 { background-position: -74px -46px; }
+.Button2Size1 { background-position: -312px -46px; }
+.Button3Size1 { background-position: -549px -46px; }
+.Button4Size1 { background-position: -788px -46px; }
+.Button5Size1 { background-position: -1026px -46px; }
+.Button1Size2 { background-position: -142px -112px; }
+.Button2Size2 { background-position: -381px -112px; }
+.Button3Size2 { background-position: -618px -112px; }
+.Button4Size2 { background-position: -857px -112px; }
+.Button5Size2 { background-position: -1095px -112px; }
+.Button1Size3 { background-position: -156px -145px; }
+.Button2Size3 { background-position: -395px -145px; }
+.Button3Size3 { background-position: -632px -145px; }
+.Button4Size3 { background-position: -871px -145px; }
+.Button5Size3 { background-position: -1109px -145px; }
+.Button1Size4 { background-position: 0 -6px; }
+.Button2Size4 { background-position: -238px -6px; }
+.Button3Size4 { background-position: -476px -6px; }
+.Button4Size4 { background-position: -714px -6px; }
+.Button5Size4 { background-position: -952px -6px; }
+.Button1Size5 { background-position: -113px -79px; }
+.Button2Size5 { background-position: -351px -79px; }
+.Button3Size5 { background-position: -589px -79px; }
+.Button4Size5 { background-position: -827px -79px; }
+.Button5Size5 { background-position: -1065px -79px; }
+
+a.Button3Size2:link { text-decoration: none; }
+a.Button3Size2:hover { text-decoration: underline; }
