@@ -1,0 +1,48 @@
+<html>
+<head>
+    <script language="javascript">
+        // Return a string to Java
+        function getString() {
+          return "Hello, world!";
+        }
+        
+        // Return a number to Java
+        function getNumber() {
+          return 5;
+        }
+
+        // Accept and return a string to Java
+        function addString ( sJava ) {
+          return "Hello, " + sJava + "!";
+        }
+
+        // Accept and return a number to Java
+        function addNumber ( nJava ) {
+          return nJava + 4;
+        }
+        
+        // Make an object with city names and an index letter.
+        function cities() {
+          this.a = "Athens";
+          this.b = "Belgrade";
+          this.c = "Cairo";
+        }
+
+        // Static object with the name of our planet.
+		var oOurPlanet = {
+			name: "Earth",
+			getCondition: function() {
+				return "Not bad";
+			}
+		};
+        
+        function getTestArray() {
+          return [ "foo", "bar" ];
+        }
+    </script>
+</head>
+<body>
+    <applet id="app" codebase="bin" code="JavaToJS.class" width="60%" height=200 mayscript=yes>
+    </applet>
+</body>
+</html>
