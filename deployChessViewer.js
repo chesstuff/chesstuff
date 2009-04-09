@@ -97,6 +97,7 @@ function createAppletElement ( oElem, pageUrl, paramObj, attribObj ) {
 		paramObj = new Object();
 	paramObj.archive = 'Viewer-Deluxe.jar';
 	paramObj.code = 'ChessBoard.class';
+	paramObj.codebase_lookup = 'false';
 	if ( pageUrl != null ) {
 		paramObj.codebase = CHESS_VIEWER_SERVER + 'cvd/bin';
 		paramObj.PgnGameFile = CHESS_VIEWER_SERVER + "cvd/pgn-proxy.php?url=" + pageUrl + "&tag=s" + idStr;
