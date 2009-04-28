@@ -4,7 +4,7 @@ Plugin Name: cvd-viewer
 Plugin URI: http://code.google.com/p/chesstuff/source/browse/wp-plugin
 Description: Allows including of PGN data in your blog posts that are later displayed on an interactive chesboard. Make chess publishing on the Web really easy.
 Version: 0.1.0
-Revision: $Revision$
+$Revision$
 Author: Nikolai Pilafov
 Author URI: http://chesstuff.blogspot.com
 */
