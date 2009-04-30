@@ -5,7 +5,7 @@ Plugin URI: http://code.google.com/p/chesstuff/source/browse/wp-plugin
 Description: Allows the post's body to include PGN chess data which is later displayed on an interactive chesboard. Makes chess publishing on the Web really easy.
 Author: Nikolai Pilafov
 Author URI: http://chesstuff.blogspot.com/2009/04/publishing-with-wordpress.html
-Version: 0.1.0
+Version: 0.2.0
 */
 
 /**
@@ -23,13 +23,16 @@ Version: 0.1.0
  * write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-function cvd_rewrite_pgn ( $pbody ) {
+function cvd_rewrite_pgn ( $sPgn ) {
 	global $cvd_seqno;
+
+	if ( ( $nTagEnd = strpos ( $sPgn, ">", 4 ) ) === false )
+		return false;
 
 	// there must be at least two attribute pairs on the PGN tag: id and onload
 	if ( preg_match_all ( "#\s+(\w+)=(?P<quot>[\"']?)(.+?)(?P=quot)(?=\s)#",
-			$pbody[1] . " ", $matches, PREG_SET_ORDER ) < 2 )
-		return $pbody[0];
+			substr ( $sPgn, 4, $nTagEnd - 4 ) . " ", $matches, PREG_SET_ORDER ) < 2 )
+		return false;
 
 	$onload = "";
 	$found = false;
@@ -47,13 +50,13 @@ function cvd_rewrite_pgn ( $pbody ) {
 
 	// is this PGN tag one of ours?
 	if ( !$found || $onload == "" )
-		return $pbody[0];
+		return false;
 
 	$cvd_stag .= " seqno='$cvd_seqno'>/*";
 	$cvd_seqno++;
 
 	// strip numeric entities
-	$pgn = str_replace ( array ( '&#8220;', '&#8221;', '&#8243;' ), '"', $pbody[2] );
+	$pgn = str_replace ( array ( '&#8220;', '&#8221;', '&#8243;' ), '"', substr ( $sPgn, $nTagEnd + 1 ) );
 
 	// tinyMCE or WP thinks that replacing "..." with a numeric entity behind the scenes
 	// will not break anything and serves a purpose! DEAD WRONG!
@@ -68,13 +71,27 @@ function cvd_header_tags ( $_ ) {
 		"<script src='http://chesstuff.googlecode.com/svn/deployChessViewer.js' type='text/javascript'></script>\n";
 }
 
-/**
- * the following nice and powerful way of doing this doesn't work if $content is about 10K big
- * in that case both "preg_replace_callback" and "preg_split" functions fail quite badly
- */
-
 function cvd_content ( $content ) {
-	return preg_replace_callback ( '/<pgn(.*?)>((.|\n|\r)*?)<\/pgn>/', "cvd_rewrite_pgn", $content );
+	$result = "";
+	for ( $nPosEnd = -1; $nPosEnd < strlen ( $content ); $nPosEnd += 5 ) {
+		// are there any PGN tags left?
+		if ( ( $nPosStart = stripos ( $content, "<pgn", $nPosEnd + 1 ) ) === false ) {
+			$result .= substr ( $content, $nPosEnd + 1 );
+			break;
+		}
+
+		$result .= substr ( $content, $nPosEnd + 1, $nPosStart - $nPosEnd - 1 );
+		if ( ( $nPosEnd = stripos ( $content, "</pgn>", $nPosStart + 4 ) ) === false )
+			return $result . substr ( $content, $nPosStart );
+
+		$sOrigTag = substr ( $content, $nPosStart, $nPosEnd - $nPosStart );
+		// now that we have the whole tag we can try making it HTML friendly
+		if ( ( $sNewTag = cvd_rewrite_pgn ( $sOrigTag ) ) === false )
+			$result .= $sOrigTag . "</pgn>";
+		else
+			$result .= $sNewTag;
+	}
+	return $result;
 }
 
 // the first instance of CVD on the page gets to be the number-one
