@@ -28,7 +28,7 @@
  * for displaying chess data contained on the Web.
  * 
  * The "live" copy of this file may be found at 
- * http://pilafov.110mb.com/cvd/deployChessViewer.js
+ * http://chesstuff.googlecode.com/svn/deployChessViewer.js
  * You are encouraged to link directly to the live copy of the file.
  *
  * @version @(#)deployChessViewer.js	1.6		03/16/2009
