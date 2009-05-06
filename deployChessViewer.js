@@ -103,7 +103,7 @@ function createAppletElement ( oElem, pageUrl, paramObj, attribObj ) {
 		paramObj.PgnGameFile = CHESS_VIEWER_SERVER + "cvd/pgn-proxy.php?url=" + pageUrl + "&tag=s" + idStr;
 	} else {
 		paramObj.codebase = 'http://chesstuff.googlecode.com/svn/bin/';
-		paramObj.PgnGameFile = "javascript: getPgnData ( " + ( oCV_Publish.PGN_Index - 1 ) + " )";
+		paramObj.PgnGameFile = "javascript: oCV_Publish.getPgnData ( " + ( oCV_Publish.PGN_Index - 1 ) + " )";
 	}
 	paramObj.ImagesFolder = 'images';
 	paramObj.MayScript = 'on';
@@ -194,6 +194,10 @@ oCV_Publish.isJavaPluginSupported = function () {
 	return this.usePlugin;
 }
 
+oCV_Publish.getPgnData = function ( sParm ) {
+	return this.PGN_Data[parseInt(sParm)];
+}
+
 function createAppletTag ( pageUrl, idStr, paramObj, attribObj ) {
   var sTemp;
 
@@ -278,11 +282,6 @@ function makeChessApplet ( urlParm, parameters, attributes, useWrite ) {
 };
 
 var oMyTemp = new Object();
-
-function getPgnData ( sParm )
-{
-	return oCV_Publish.PGN_Data[parseInt(sParm)];
-}
 
 function createManyElements ( oElem, pageUrl, paramObj, attribObj ) {
 	oMyTemp.nCount = 0;
