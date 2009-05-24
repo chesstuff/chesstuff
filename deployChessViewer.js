@@ -100,7 +100,7 @@ function createAppletElement ( oElem, pageUrl, paramObj, attribObj ) {
 	paramObj.codebase_lookup = 'false';
 	if ( pageUrl != null ) {
 		paramObj.codebase = CHESS_VIEWER_SERVER + 'cvd/bin';
-		paramObj.PgnGameFile = CHESS_VIEWER_SERVER + "cvd/pgn-proxy.php?url=" + pageUrl + "&tag=s" + idStr;
+		paramObj.PgnGameFile = CHESS_VIEWER_SERVER + "cvd/pgn-proxy.php?url=" + encodeURI ( pageUrl ) + "&tag=s" + idStr;
 	} else {
 		paramObj.codebase = 'http://chesstuff.googlecode.com/svn/bin/';
 		paramObj.PgnGameFile = "javascript: oCV_Publish.getPgnData ( " + ( oCV_Publish.PGN_Index - 1 ) + " )";
