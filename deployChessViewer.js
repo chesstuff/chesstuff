@@ -106,7 +106,8 @@ function createAppletElement ( oElem, pageUrl, paramObj, attribObj ) {
 		paramObj.PgnGameFile = "javascript: oCV_Publish.getPgnData ( " + ( oCV_Publish.PGN_Index - 1 ) + " )";
 	}
 	paramObj.ImagesFolder = 'images';
-	paramObj.MayScript = 'on';
+//	paramObj.MayScript = 'on';
+	paramObj.MayScript = 'true';								// Safari on Mac would only work this way
 	if ( typeof paramObj.Encoding == 'undefined' ) {
 		if ( typeof document.charset != 'undefined' )
 			sEncode = document.charset;							// IE
