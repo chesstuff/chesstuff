@@ -50,7 +50,7 @@ if ( typeof oCV_Publish == "undefined" ) {
 	oCV_Publish.PGN_Index = 0;
 }
 
-var CHESS_VIEWER_SERVER = "http://pilafov.110mb.com/",
+var CHESS_VIEWER_SERVER = "http://chesstuff.110mb.com/",
 	JAVA_MIME_TYPE = "application/x-java-applet";
 
 oCV_Publish.createObjParam = function ( el, pName, pValue ) {
@@ -99,7 +99,7 @@ function createAppletElement ( oElem, pageUrl, paramObj, attribObj ) {
 	paramObj.code = 'ChessBoard.class';
 	paramObj.codebase_lookup = 'false';
 	if ( pageUrl != null ) {
-		paramObj.codebase = CHESS_VIEWER_SERVER + 'cvd/bin';
+		paramObj.codebase = CHESS_VIEWER_SERVER + 'olympics/bin';
 		paramObj.PgnGameFile = CHESS_VIEWER_SERVER + "cvd/pgn-proxy.php?url=" + encodeURI ( pageUrl ) + "&tag=s" + idStr;
 	} else {
 		paramObj.codebase = 'http://chesstuff.googlecode.com/svn/bin/';
@@ -202,7 +202,7 @@ oCV_Publish.getPgnData = function ( sParm ) {
 function createAppletTag ( pageUrl, idStr, paramObj, attribObj ) {
   var sTemp;
 
-	sTemp = "<APPLET codebase=\"" + CHESS_VIEWER_SERVER + "cvd/bin\" archive=\"Viewer-Deluxe.jar\" " +
+	sTemp = "<APPLET codebase=\"" + CHESS_VIEWER_SERVER + "olympics/bin\" archive=\"Viewer-Deluxe.jar\" " +
 		"code=\"ChessBoard.class\" align=\"baseline\" width=\"631\" height=\"560\"";
 	for ( var attribute in attribObj )
 		sTemp += ( ' ' + attribute + '="' + attribObj[attribute] + '"' );
