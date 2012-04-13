@@ -250,7 +250,7 @@ function makeChessApplet ( urlParm, parameters, attributes, useWrite ) {
 		oScript = null;
 
 	if ( oScript == null ) {
-		alert ( "Unable to properly indentify the corresponding SCRIPT element !" );
+		alert ( "Unable to properly identify the corresponding SCRIPT element !" );
 		return;
 	}
 
