@@ -1,1 +1,1 @@
-This will contain the TOC
+This will contain the TOC as a plain text
